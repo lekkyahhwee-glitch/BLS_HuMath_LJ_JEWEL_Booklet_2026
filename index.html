@@ -12,7 +12,7 @@
   /* Jewel: daylight through glass, forest, waterfall */
   --mist:#EAF3EE; --glass:#F7FBF8; --leaf:#D5E9DC; --fern:#2F7A4F; --forest:#123D2E; --canopy:#0B2A1F;
   --falls:#1A93B8; --lattice:#9FC7B8; --sun:#F4B43A; --alert:#D9452F; --pink:#FF2D85;
-  --sapphire:#1E7FD6; --emerald:#1E9E5A; --garnet:#D63A4C; --morganite:#C9568F;
+  --sapphire:#1E7FD6; --emerald:#1E9E5A; --garnet:#D63A4C; --morganite:#E8B923;
   --ink:var(--forest); --white:#FFFFFF; --muted:#4E6B5F; --line:#B9D6C7;
   --text:var(--forest); --signal:var(--sun); --tape:var(--sun);
   --toolbar-h:58px; --footer-h:78px;
@@ -157,7 +157,7 @@ select.inp{appearance:auto}
   background:#fff;border:1.5px solid var(--line);border-radius:16px;cursor:pointer;text-align:left;color:var(--forest)}
 .mrow:not(:disabled):active{transform:scale(.99);background:var(--glass)}
 .mrow:disabled{cursor:not-allowed;opacity:.5;background:transparent}
-.mrow .code{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.15rem;height:46px;display:grid;place-items:center;border-radius:12px;color:#fff;background:var(--gem,var(--forest))}
+.mrow .code{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.15rem;height:46px;display:grid;place-items:center;border-radius:12px;color:var(--gem-ink,#fff);background:var(--gem,var(--forest))}
 .mrow .t{min-width:0;font-weight:700}
 .mrow .t small{display:block;color:var(--muted);font-size:.9rem;font-weight:400;margin-top:2px}
 .status{font-size:.85rem;font-weight:700;padding:6px 12px;border-radius:999px;white-space:nowrap;background:var(--mist);color:var(--muted)}
@@ -172,7 +172,7 @@ select.inp{appearance:auto}
 .tblock::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='62.35'%3E%3Cpath d='M0 62.35 36 0 72 62.35 M-36 0 H108 M0 62.35 H72' fill='none' stroke='%237FB8A2' stroke-opacity='.45' stroke-width='1'/%3E%3C/svg%3E");background-size:72px 62.35px;opacity:.25}
 .tblock::after{content:"";position:absolute;right:-30px;top:-30px;width:180px;height:180px;border-radius:50%;background:var(--gem);opacity:.35;filter:blur(30px)}
 .tb-main{position:relative;z-index:1;display:flex;align-items:center;gap:16px}
-.tb-code{flex:none;display:grid;place-items:center;width:70px;height:70px;border-radius:18px;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.6rem;color:#fff;background:var(--gem)}
+.tb-code{flex:none;display:grid;place-items:center;width:70px;height:70px;border-radius:18px;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.6rem;color:var(--gem-ink,#fff);background:var(--gem)}
 .tb-main h2{font-size:clamp(1.6rem,4.5vw,2.2rem);color:#fff}
 .tb-cells{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:16px;font-weight:700;font-size:.95rem}
 .tb-cells span{display:block;font-weight:400;color:#9FC9B4;font-size:.8rem}
@@ -183,7 +183,7 @@ select.inp{appearance:auto}
 /* parts */
 .part{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:20px 20px 22px;margin:0 0 16px}
 .part .ph{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
-.part .pl{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;color:#fff;background:var(--gem);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.part .pl{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;color:var(--gem-ink,#fff);background:var(--gem);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
 .part .pq{flex:1;padding-top:6px;font-size:1.05rem}
 .ansrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px}
 .ansrow .inp{max-width:220px}
@@ -282,7 +282,7 @@ body.night #app .core-wrap{border-radius:0 0 28px 28px;box-shadow:0 18px 40px rg
 .shot{background:var(--sun);color:var(--canopy);font-weight:700;border-radius:16px;padding:14px 18px;margin:8px 0 14px;font-size:1.05rem}
 .anscard{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px 16px;margin:0 0 14px}
 .anscard h3{display:flex;align-items:center;gap:10px;font-size:1.15rem;margin:0 0 8px;flex-wrap:wrap}
-.anscard h3 .code{display:inline-grid;place-items:center;min-width:42px;height:32px;border-radius:9px;background:var(--gem);color:#fff;font-size:.95rem}
+.anscard h3 .code{display:inline-grid;place-items:center;min-width:42px;height:32px;border-radius:9px;background:var(--gem);color:var(--gem-ink,#fff);font-size:.95rem}
 .anscard h3 small{margin-left:auto;font-family:"Atkinson Hyperlegible",sans-serif;font-weight:700;font-size:.82rem;color:var(--muted)}
 .anscard table{width:100%;border-collapse:collapse;font-size:.95rem}
 .anscard th{text-align:left;font-weight:400;color:var(--muted);width:42%;padding:6px 10px 6px 0;vertical-align:top;border-top:1px solid var(--mist)}
@@ -373,10 +373,10 @@ let S = load();
 
 /* ============ content ============ */
 const GEMS = {
-  sapphire: {name:"Sapphire", sys:"Water", col:"#1E7FD6"},
-  emerald:  {name:"Emerald",  sys:"Life support", col:"#1E9E5A"},
-  garnet:   {name:"Garnet",   sys:"Economy and trade", col:"#D63A4C"},
-  morganite:{name:"Morganite",sys:"Culture and security", col:"#C9568F"}
+  sapphire: {name:"Sapphire", sys:"Water", col:"#1E7FD6", ink:"#FFFFFF", txt:"#1E7FD6"},
+  emerald:  {name:"Emerald",  sys:"Life support", col:"#1E9E5A", ink:"#FFFFFF", txt:"#1E9E5A"},
+  garnet:   {name:"Garnet",   sys:"Economy and trade", col:"#D63A4C", ink:"#FFFFFF", txt:"#D63A4C"},
+  morganite:{name:"Morganite",sys:"Culture and security", col:"#E8B923", ink:"#2A1F00", txt:"#9A7400"}
 };
 const TASKS = [
   {id:"m1", code:"M1", gem:"sapphire", title:"Rebuild the water core", where:"Level 1, around the Rain Vortex", avail:true},
@@ -697,7 +697,7 @@ function showAssignment(){
   const t = taskById(S.startTask); if(!t) return;
   modal("Relay assignment received",
     `<p>To avoid jamming the signal, each team starts at a different location.</p>
-     <p style="font-size:1.25rem;margin:14px 0"><b style="color:${GEMS[t.gem].col}">${t.code}: ${t.title}</b><br><span style="color:var(--muted)">${t.where}</span></p>
+     <p style="font-size:1.25rem;margin:14px 0"><b style="color:${GEMS[t.gem].txt}">${t.code}: ${t.title}</b><br><span style="color:var(--muted)">${t.where}</span></p>
      <p>Upload this mission first. After that, every other mission unlocks and you choose your own route.</p>`,
     [{label:"Go to my first mission", cls:"primary", fn:() => go("task:" + t.id)}]);
 }
@@ -769,7 +769,7 @@ function coreSVG(prev){
         <polygon points="${x},${top} ${x+20},${top+20} ${x},${top+34}" fill="#fff" opacity=".35"/></g>
       <polygon points="${pts}" fill="none" stroke="${c}" stroke-width="2.5" ${full ? "" : `stroke-dasharray="5 4"`}/>
       <rect x="${x-46}" y="${top+82}" width="92" height="26" rx="13" fill="${full ? c : "#0B2433"}" stroke="${full ? c : "rgba(159,227,197,.35)"}"/>
-      <text x="${x}" y="${top+100}" text-anchor="middle" fill="${full ? "#FFFFFF" : "#B8D6C6"}" font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" font-size="14">${GEMS[g].name}</text>`;
+      <text x="${x}" y="${top+100}" text-anchor="middle" fill="${full ? GEMS[g].ink : "#B8D6C6"}" font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" font-size="14">${GEMS[g].name}</text>`;
   });
   out += `</svg>`;
   return out;
@@ -795,7 +795,7 @@ function renderHub(opts){
   if(CONFIG.SAMPLE) html += `<div class="sample-note">Sample build: M1, M2, M3, H1 and H2 are playable. H3 will be added in the full build.</div>`;
   html += `<div class="register">`;
   ["sapphire","emerald","garnet","morganite"].forEach(g => {
-    html += `<div class="gem-group" style="--gem:${GEMS[g].col}"><h3><span class="gem-dot" style="background:${GEMS[g].col}"></span>${GEMS[g].name} core: ${GEMS[g].sys.toLowerCase()}</h3>`;
+    html += `<div class="gem-group" style="--gem:${GEMS[g].col};--gem-ink:${GEMS[g].ink}"><h3><span class="gem-dot" style="background:${GEMS[g].col}"></span>${GEMS[g].name} core: ${GEMS[g].sys.toLowerCase()}</h3>`;
     TASKS.filter(t => t.gem === g).forEach(t => {
       html += `<button class="mrow" data-task="${t.id}" ${isLocked(t) ? "disabled" : ""}>
         <span class="code">${t.code}</span><span class="t">${t.title}<small>${t.where}</small></span>${statusOf(t)}</button>`;
@@ -1124,7 +1124,7 @@ function renderTask(id){
   if(S.up[id]) banner = S.changed[id]
     ? `<div class="uploaded-banner changed">You changed some answers. Upload again to update the core.</div>`
     : `<div class="uploaded-banner">Uploaded to the ${g.name} core. You can still edit and upload again.</div>`;
-  scroll.innerHTML = `<div style="--gem:${g.col}">
+  scroll.innerHTML = `<div style="--gem:${g.col};--gem-ink:${g.ink}">
     <div class="tblock"><div class="tb-main"><div class="tb-code">${t.code}</div><h2>${t.title}</h2></div>
       <div class="tb-cells"><div><span>Core</span>${g.name}: ${g.sys.toLowerCase()}</div><div><span>Location</span>${t.where}</div><div><span>Group</span>${esc(S.teamNo)}: ${esc(S.team)}</div></div></div>
     ${banner}${BUILD[id]()}</div>`;
@@ -1214,7 +1214,7 @@ function renderAnswers(){
       rows.push(`<tr><th>${esc(label)}</th><td class="${v ? "" : "empty"}">${esc(shown)}</td></tr>`);
     });
     const st = S.up[t.id] ? (S.changed[t.id] ? "Changed, upload again" : "Uploaded") : "Not uploaded";
-    html += `<div class="anscard" style="--gem:${GEMS[t.gem].col}"><h3><span class="code">${t.code}</span>${t.title}<small>${st}</small></h3><table>${rows.join("")}</table></div>`;
+    html += `<div class="anscard" style="--gem:${GEMS[t.gem].col};--gem-ink:${GEMS[t.gem].ink}"><h3><span class="code">${t.code}</span>${t.title}<small>${st}</small></h3><table>${rows.join("")}</table></div>`;
   });
   scroll.innerHTML = html;
   setFooter(``, `<button class="btn primary" id="ansBack">Back to the core</button>`);
