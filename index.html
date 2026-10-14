@@ -351,7 +351,7 @@ const CONFIG = {
     "3G3": "https://docs.google.com/forms/d/e/1FAIpQLSebK6RLuvXJVZchsGfJ37JJUjoK_EYZcCfLSl6tHm7Vqu7s-Q/viewform?usp=pp_url&entry.489995127=team&entry.1155806756=teamNo&entry.1741130959=Ms+Josephine+Tan&entry.1819944630=m1g3_ang&entry.394348709=m1g3_d&entry.2084917760=m2_r&entry.956118960=m2_o2&entry.482036900=m2_t&entry.1387064410=m3_price&entry.1088999288=m3_grams&entry.213911271=m3_sgd&entry.593019524=m3_rate&entry.1444729063=m3_conv&entry.1373833329=Yes&entry.951260942=m3_why&entry.1723860078=h1_brand&entry.826686284=h1_country&entry.372428425=h1_product&entry.415466234=h1_adapt&entry.96785873=h2_cuisine&entry.1604414699=h2_culture&entry.30959059=h2_dish&entry.260684899=h2_why&entry.47259732=h3_tech&entry.1850740820=h3_does&entry.203001611=h3_connect&entry.2081008015=h3_sec&entry.1931083600=h3_threat&entry.1897944452=h3_why"
   },
   // SS teachers offered at setup. Keep identical to the form script's list.
-  SS_TEACHERS: { "3G2": ["Ms Josephine Tan", "Mr Ken Neo"], "3G3": ["Ms Josephine Tan", "Mr Ken Neo"] },
+  SS_TEACHERS: { "3G2": ["Ms Josephine Tan", "Mr Ken Neo"], "3G3": ["Ms Josephine Tan", "Ms Haziqah", "Mr Suhaimi"] },
   SAMPLE: false,
   TEAMS: { "3G2": 14, "3G3": 21 }, // team numbers offered per class
   TEACHER_CODE: "4719"           // lets a teacher unlock all missions on a device
@@ -613,11 +613,11 @@ function renderSetup(){
     <p class="sub">Everyone in your team fills this in on their own iPad.</p>
     <div class="field"><label for="teamIn">Team name</label>
       <input class="inp" id="teamIn" maxlength="30" autocomplete="off" placeholder="e.g. Team Vortex"></div>
-    <div class="field"><span class="lbl">Your class</span>
+    <div class="field"><span class="lbl">Your Humanities Rigour</span>
       <div class="chips" id="clsChips">
         <button class="chip" data-cls="3G2" aria-pressed="false">3G2</button>
         <button class="chip" data-cls="3G3" aria-pressed="false">3G3</button>
-      </div><small id="clsLockNote" style="display:none;color:var(--muted)">🔒 Class is locked. Ask your teacher if it needs to change.</small></div>
+      </div><small id="clsLockNote" style="display:none;color:var(--muted)">🔒 Humanities Rigour is locked. Ask your teacher if it needs to change.</small></div>
     <div class="field"><span class="lbl">Your SS teacher</span>
       <div class="chips" id="ssChips"></div></div>
     <div class="field"><span class="lbl">Group number (assigned by your teacher)</span>
@@ -637,7 +637,7 @@ function renderSetup(){
     if(box.dataset.cls !== S.cls){
       box.dataset.cls = S.cls;
       box.innerHTML = max ? Array.from({length:max},(_,i)=>`<button class="chip" data-no="${i+1}" aria-pressed="false" style="min-width:58px;text-align:center">${i+1}</button>`).join("")
-        : `<span style="color:var(--muted)">Choose your class first.</span>`;
+        : `<span style="color:var(--muted)">Choose your Humanities Rigour first.</span>`;
       $$(".chip", box).forEach(c => c.onclick = () => { S.teamNo = c.dataset.no; save(); sync(); });
     }
     $$("#noChips .chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.no === String(S.teamNo)));
@@ -647,7 +647,7 @@ function renderSetup(){
     if(sb.dataset.cls !== S.cls){
       sb.dataset.cls = S.cls;
       sb.innerHTML = tl.length ? tl.map(n => `<button class="chip" data-ss="${esc(n)}" aria-pressed="false">${esc(n)}</button>`).join("")
-        : `<span style="color:var(--muted)">Choose your class first.</span>`;
+        : `<span style="color:var(--muted)">Choose your Humanities Rigour first.</span>`;
       $$(".chip", sb).forEach(c => c.onclick = () => { S.ssTeacher = c.dataset.ss; save(); sync(); });
     }
     $$("#ssChips .chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.ss === S.ssTeacher));
@@ -663,8 +663,8 @@ function renderSetup(){
   $("#backBtn").onclick = () => go(S.setupDone ? "hub" : "intro");
   $("#enterBtn").onclick = () => {
     if(!S.clsLocked){
-      modal("Confirm your class", `<p style="font-size:1.3rem">You chose <b style="color:var(--signal)">${esc(S.cls)}</b>.</p><p>Your missions and Google Form depend on this. Once you enter the relay, only a teacher can change it.</p>`,
-        [{label:"Change class", cls:"ghost"}, {label:"Confirm and enter", cls:"primary", fn:() => { S.clsLocked = true; save(); enterRelay(); }}]);
+      modal("Confirm your Humanities Rigour", `<p style="font-size:1.3rem">You chose <b style="color:var(--signal)">${esc(S.cls)}</b>.</p><p>Your missions and Google Form depend on this. Once you enter the relay, only a teacher can change it.</p>`,
+        [{label:"Change it", cls:"ghost"}, {label:"Confirm and enter", cls:"primary", fn:() => { S.clsLocked = true; save(); enterRelay(); }}]);
       return;
     }
     enterRelay();
@@ -702,11 +702,11 @@ function showAssignment(){
     [{label:"Go to my first mission", cls:"primary", fn:() => go("task:" + t.id)}]);
 }
 function classUnlock(newCls, after){
-  modal("Change class?", `<p>Class is locked. Enter the teacher code to switch this iPad to <b>${esc(newCls)}</b>. The team number will need to be picked again.</p><input class="inp" id="ccode" inputmode="numeric" autocomplete="off" style="max-width:200px">`,
-    [{label:"Cancel", cls:"ghost"}, {label:"Change class", cls:"primary", fn:() => {
+  modal("Change Humanities Rigour?", `<p>Humanities Rigour is locked. Enter the teacher code to switch this iPad to <b>${esc(newCls)}</b>. The SS teacher and group number will need to be picked again.</p><input class="inp" id="ccode" inputmode="numeric" autocomplete="off" style="max-width:200px">`,
+    [{label:"Cancel", cls:"ghost"}, {label:"Change it", cls:"primary", fn:() => {
       const v = ($("#ccode") || {}).value || "";
-      if(v.trim() === CONFIG.TEACHER_CODE){ S.cls = newCls; S.teamNo = ""; save(); toast("Class changed to " + newCls); after && after(); }
-      else modal("Wrong code", `<p>That code didn't match. Class stays as ${esc(S.cls)}.</p>`, [{label:"OK", cls:"primary"}]);
+      if(v.trim() === CONFIG.TEACHER_CODE){ S.cls = newCls; S.teamNo = ""; S.ssTeacher = ""; save(); toast("Changed to " + newCls); after && after(); }
+      else modal("Wrong code", `<p>That code didn't match. It stays as ${esc(S.cls)}.</p>`, [{label:"OK", cls:"primary"}]);
     }}]);
 }
 function teacherUnlock(){
